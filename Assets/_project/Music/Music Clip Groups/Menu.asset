@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59ee5ce1bed47414cbee3715620ce3e4, type: 3}
+  m_Name: Menu
+  m_EditorClassIdentifier: 
+  _groupName: Menu
+  _audioClips:
+  - {fileID: 8300000, guid: 07f391589664f4e85904fa28802b4aa8, type: 3}
+  - {fileID: 8300000, guid: e4a879615ffc41949a6d9a7c0a12acf7, type: 3}
+  - {fileID: 8300000, guid: f9fc305ce1a587449815831373f0c82a, type: 3}
+  - {fileID: 8300000, guid: 164f33f60d4d185439fc4089e48dd5fb, type: 3}
+  - {fileID: 8300000, guid: de1c7e4fe64d70b49a37acdd4381d04b, type: 3}

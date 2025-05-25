@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class Parallax : MonoBehaviour
 {
     [SerializeField] private float _scrollSpeed = 0.1f; // Speed at which the layer moves to the left
-    [SerializeField] private float _resetPositionX = -20f; // X position to reset the layer
-   // [SerializeField] private float _startPositionX = 20f; // X position to start the layer
+    [SerializeField] private float _resetPositionX = -20f; // X position to reset the laye
+    // [SerializeField] private float _startPositionX = 20f; // X position to start the layer
     private Vector3 _startPosition;
     void Start()
     {
@@ -23,4 +22,5 @@ public class Parallax : MonoBehaviour
             transform.position = new Vector3(_startPosition.x, transform.position.y, transform.position.z);
         }
     }
+
 }

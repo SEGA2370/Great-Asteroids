@@ -730,7 +730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollSpeed: 0.8
-  _resetPositionX: 0
+  _resetThreshold: -20
+  _startOffset: 20
 --- !u!1 &243439714
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,7 +2499,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollSpeed: 0.3
-  _resetPositionX: 0
+  _resetThreshold: -20
+  _startOffset: 20
 --- !u!1 &1110963074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,7 +2651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1194518213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8402,6 +8404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Graphy]'
       objectReference: {fileID: 0}
+    - target: {fileID: 177638, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 22451668, guid: 0abab5bb77339e4428787a870eb31bd3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -9316,7 +9322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scrollSpeed: 1
-  _resetPositionX: -20
+  _resetThreshold: -20
+  _startOffset: 20
 --- !u!1 &1684678960
 GameObject:
   m_ObjectHideFlags: 0

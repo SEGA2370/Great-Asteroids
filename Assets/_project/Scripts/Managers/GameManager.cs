@@ -113,27 +113,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private void IncrementRound()
     {
         Round++;
-
-        //// Check if round 5 is finished
-        //if (Round > 5)
-        //{
-        //    LoadNextScene();
-        //}
-    }
-
-    private void LoadNextScene()
-    {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
     }
 
     public void RoundOver()

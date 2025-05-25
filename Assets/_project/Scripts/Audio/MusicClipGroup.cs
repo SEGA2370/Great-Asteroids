@@ -15,10 +15,18 @@ public class MusicClipGroup : ScriptableObject
     }
     void ShuffleTrackQueue()
     {
-        if (_trackQueue.Count != 0) return;
-        foreach (var audioClip in _audioClips.OrderBy(_ => Random.value))
+        if (_audioClips == null || _audioClips.Length == 0) return;
+
+        var list = new List<AudioClip>(_audioClips);
+        int n = list.Count;
+        while (n > 1)
         {
-            _trackQueue.Enqueue(audioClip);
+            n--;
+            int k = Random.Range(0, n + 1);
+            (list[n], list[k]) = (list[k], list[n]);
         }
+
+        foreach (var clip in list)
+            _trackQueue.Enqueue(clip);
     }
 }

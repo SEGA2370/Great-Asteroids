@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using System.Collections;
 
 public class ExplosionEffect : MonoBehaviour
 {
     [SerializeField] private float _explosionVolume = 0.1f;
+
     private ParticleSystem _particleSystem;
-    private float _completedTime;
 
     // Pool reference
     public IObjectPool<ExplosionEffect> Pool { get; set; }
@@ -16,7 +17,7 @@ public class ExplosionEffect : MonoBehaviour
 
         if (_particleSystem == null)
         {
-           return;
+            Debug.LogError("ExplosionEffect: Missing ParticleSystem.");
         }
     }
 
@@ -24,27 +25,26 @@ public class ExplosionEffect : MonoBehaviour
     {
         if (_particleSystem == null) return;
 
-        SfxManager.Instance.PlayClip(SoundEffectsClip.Explosion, _explosionVolume);
+        // Reset and play the particle system
+        _particleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         _particleSystem.Play();
-        _completedTime = Time.time + _particleSystem.main.duration;
-    }
 
-    private void Update()
-    {
-        if (_particleSystem == null || !_particleSystem.isPlaying) return;
-
-        if (Time.time >= _completedTime)
+        // Play sound safely
+        if (SfxManager.Instance != null)
         {
-            HandleExplosionCompletion();
+            SfxManager.Instance.PlayClip(SoundEffectsClip.Explosion, _explosionVolume);
         }
+
+        // Schedule pool release
+        float lifetime = _particleSystem.main.duration + _particleSystem.main.startLifetime.constant;
+        StartCoroutine(ReleaseAfter(lifetime));
     }
 
-    private void HandleExplosionCompletion()
+    private IEnumerator ReleaseAfter(float delay)
     {
-        // Raise an event if needed
-        EventBus.Instance?.Raise(new ExplosionCompletedEvent(this));
+        yield return new WaitForSeconds(delay);
 
-        // Return to the pool instead of destroying
+        EventBus.Instance?.Raise(new ExplosionCompletedEvent(this));
         Pool?.Release(this);
     }
 }

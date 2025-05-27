@@ -1,6 +1,6 @@
 # 🚀 Great Asteroids
 
-<img src="Assets/Images/great_asteroids_preview.jpg" alt="Great Asteroids Gameplay" width="600"/>
+<img src="Assets/_project/Asteroids.jpg" alt="Great Asteroids Gameplay" width="600"/>
 
 ## 🎮 Game Overview
 
